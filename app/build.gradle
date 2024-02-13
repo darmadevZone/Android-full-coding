@@ -72,6 +72,12 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // for retrofit, moshi
+    implementation(libs.moshi)
+    implementation(libs.moshi.kotlin)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.moshi)
+
 
     // for dagger-hilt
     implementation(libs.dagger.hilt.android)
@@ -79,4 +85,7 @@ dependencies {
     kapt(libs.dagger.hilt.android.compiler)
 
 
+}
+kapt {
+    correctErrorTypes true
 }

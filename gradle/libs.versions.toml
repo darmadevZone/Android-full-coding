@@ -13,7 +13,11 @@ composeBom = "2023.08.00"
 navigationSafeArgsGradlePlugin = "2.7.7"
 
 # DI
-dagger = "2.50"
+dagger = "2.48"
+
+# for retrofit, moshi
+retrofit = "2.9.0"
+moshi = "1.15.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -39,6 +43,12 @@ kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", v
 dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
 dagger-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger" }
 dagger-hilt-navigation-compose = {module = "androidx.hilt:hilt-navigation-compose",version = "1.1.0"}
+
+# for retrofit ,moshi
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
+moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
+moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
 
 
 [plugins]
