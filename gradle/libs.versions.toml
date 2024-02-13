@@ -12,6 +12,9 @@ activityCompose = "1.8.0"
 composeBom = "2023.08.00"
 navigationSafeArgsGradlePlugin = "2.7.7"
 
+# DI
+dagger = "2.50"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 # androidx-material = { module = "androidx.compose.material:material", version.ref = "material" }
@@ -31,6 +34,11 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinGradlePlugin" }
+
+# for dagger-hilt
+dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
+dagger-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger" }
+dagger-hilt-navigation-compose = {module = "androidx.hilt:hilt-navigation-compose",version = "1.1.0"}
 
 
 [plugins]
