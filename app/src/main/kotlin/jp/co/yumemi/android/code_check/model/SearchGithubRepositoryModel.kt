@@ -8,7 +8,7 @@ import com.squareup.moshi.JsonClass
 data class SearchGithubRepositoryModel(
     @Json(name = "incomplete_results")
     val incompleteResults: Boolean?,
-    val items: List<Item>?,
+    val items: List<Item>,
     @Json(name = "total_count")
     val totalCount: Int?
 )
