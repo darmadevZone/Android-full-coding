@@ -10,7 +10,6 @@ kotlinGradlePlugin = "1.6.21"
 lifecycleRuntimeKtx = "2.6.1"
 activityCompose = "1.8.0"
 composeBom = "2023.08.00"
-navigationSafeArgsGradlePlugin = "2.7.7"
 
 # DI
 dagger = "2.48"
@@ -22,7 +21,6 @@ moshi = "1.15.1"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 # androidx-material = { module = "androidx.compose.material:material", version.ref = "material" }
-androidx-navigation-safe-args-gradle-plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigationSafeArgsGradlePlugin" }
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
