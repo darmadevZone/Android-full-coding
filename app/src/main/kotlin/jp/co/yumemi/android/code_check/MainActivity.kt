@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.Text
 import dagger.hilt.android.AndroidEntryPoint
 import jp.co.yumemi.android.code_check.ui.theme.YumemiCodeCheckTheme
+import jp.co.yumemi.android.code_check.view.SearchGithubView
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -15,7 +16,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             YumemiCodeCheckTheme{
-               Text(text = "Hello, World") 
+                SearchGithubView()
             }
         }
     }

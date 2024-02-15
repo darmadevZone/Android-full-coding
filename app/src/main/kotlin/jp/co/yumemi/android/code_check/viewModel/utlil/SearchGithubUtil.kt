@@ -1,6 +1,5 @@
 package jp.co.yumemi.android.code_check.viewModel.utlil
 
-import androidx.lifecycle.ViewModel
 import jp.co.yumemi.android.code_check.common.NetworkResponse
 import jp.co.yumemi.android.code_check.model.SearchGithubRepositoryModel
 import jp.co.yumemi.android.code_check.repository.GithubRepository
@@ -10,7 +9,7 @@ import javax.inject.Inject
 
 class SearchGithubUtil @Inject constructor(
     private val githubRepository: GithubRepository
-) : ViewModel() {
+) {
 
 
     // query -> searchGithubRepositoryで検索 -> responseの取得
@@ -22,7 +21,6 @@ class SearchGithubUtil @Inject constructor(
         }catch (e: Exception){
             emit(NetworkResponse.Failure(error = e.toString()))
         }
-
     }
 
 }
