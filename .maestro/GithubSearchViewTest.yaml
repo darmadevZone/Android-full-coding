@@ -1,0 +1,12 @@
+appId: jp.co.yumemi.android.codecheck
+name: Github Search View Test
+---
+
+- launchApp
+- assertVisible:
+    "Android Engineer CodeCheck"
+- tapOn: "Github Search..."
+- inputText: "kotlin"
+- tapOn:
+    point: "92%,91%"
+- assertVisible: "kotlin"
