@@ -22,7 +22,6 @@ class SearchGithubUtil @Inject constructor(
         }catch (e: Exception){
             emit(NetworkResponse.Failure(error = e.toString()))
         }
-
     }
 
 }
