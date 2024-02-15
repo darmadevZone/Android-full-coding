@@ -7,7 +7,6 @@ buildscript {
     dependencies {
         classpath libs.gradle
         classpath libs.kotlin.gradle.plugin
-        classpath libs.androidx.navigation.safe.args.gradle.plugin
 
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.48'
 
@@ -17,6 +16,7 @@ buildscript {
 }
 plugins{
     id("com.google.dagger.hilt.android") version "2.44" apply false
+    alias(libs.plugins.jetbrains.kotlin.android) apply false
 }
 
 
