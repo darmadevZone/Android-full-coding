@@ -32,6 +32,8 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
+
+
 @Composable
 fun YumemiCodeCheckTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -53,4 +55,5 @@ fun YumemiCodeCheckTheme(
         typography = Typography,
         content = content
     )
+
 }
