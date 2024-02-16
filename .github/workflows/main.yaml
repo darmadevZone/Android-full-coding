@@ -1,6 +1,14 @@
 name: Ci
 
-on: pull_request
+on:
+  push:
+    branches:
+      - main
+    pull_request:
+      branches:
+        - main
+
+  workflow_dispatch:
 
 jobs:
   maestro-cloud:
@@ -18,3 +26,9 @@ jobs:
         with:
           api-key: ${{ secrets.MAESTRO_CLOUD_API_KEY }}
           app-file: app/build/outputs/apk/debug/app-debug.apk
+  ktlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run ktlint
+        run: ./gradlew ktlint
