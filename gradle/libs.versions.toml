@@ -7,6 +7,7 @@ junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 kotlinGradlePlugin = "1.6.21"
+ktlint = "0.40.0"
 lifecycleRuntimeKtx = "2.6.1"
 activityCompose = "1.8.0"
 composeBom = "2023.08.00"
@@ -43,6 +44,7 @@ dagger-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compil
 dagger-hilt-navigation-compose = {module = "androidx.hilt:hilt-navigation-compose",version = "1.1.0"}
 
 # for retrofit ,moshi
+ktlint = { module = "com.pinterest:ktlint", version.ref = "ktlint" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
 moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }

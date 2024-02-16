@@ -1,6 +1,5 @@
 package jp.co.yumemi.android.code_check.model
 
-
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
