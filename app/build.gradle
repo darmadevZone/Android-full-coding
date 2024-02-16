@@ -6,9 +6,6 @@ plugins {
     id "com.google.dagger.hilt.android"
     alias(libs.plugins.jetbrains.kotlin.android)
 }
-configurations {
-    ktlint
-}
 
 android {
     namespace 'jp.co.yumemi.android.code_check'
@@ -87,29 +84,8 @@ dependencies {
     implementation(libs.dagger.hilt.navigation.compose)
     kapt(libs.dagger.hilt.android.compiler)
 
-    // for ktlint
-    ktlint(libs.ktlint)
-
-
 
 }
 kapt {
     correctErrorTypes true
-}
-
-task ktlint(type: JavaExec, group: "verification") {
-    description = "Check Kotlin code style."
-    mainClass.set("com.pinterest.ktlint.Main")
-    classpath = configurations.ktlint
-    args "src/**/*.kt", "--color", "--reporter=plain", "--reporter=checkstyle,output=${buildDir}/ktlint.xml"
-}
-
-// Add
-check.dependsOn ktlint
-
-task ktlintFormat(type: JavaExec, group: "formatting") {
-    description = "Fix Kotlin code style deviations."
-    mainClass.set("com.pinterest.ktlint.Main")
-    classpath = configurations.ktlint
-    args "-F", "src/**/*.kt"
 }

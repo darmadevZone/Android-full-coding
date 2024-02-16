@@ -1,5 +1,6 @@
 package jp.co.yumemi.android.code_check.di
 
+import android.service.voice.VoiceInteractionSession.ActivityId
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -13,6 +14,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 @Module
 @InstallIn(ActivityRetainedComponent::class)
 object GithubModule {
+
 
     @Provides
     fun provideRetrofit(): Retrofit {
