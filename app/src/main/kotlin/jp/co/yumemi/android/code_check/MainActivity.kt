@@ -36,9 +36,22 @@ class MainActivity : ComponentActivity() {
                             },
                         )
                     }
-                    composable(route = ViewRoute.GithubDetailView.route) {
+                    composable(
+                        route = ViewRoute.GithubDetailView.route,
+                        arguments =
+                        listOf(
+                            navArgument("repositoryId") {
+                                type = NavType.StringType
+                            },
+                            navArgument("owner") {
+                                type = NavType.StringType
+                            },
+                        ),
+                    ) { backStackEntry ->
                         GithubDetailView(
-                            goToSearchView = {},
+                            goToSearchView = { navController.navigate(ViewRoute.SearchGithubView.route) },
+                            repositoryName = checkNotNull(backStackEntry.arguments?.getString("repositoryId")),
+                            repositoryOwner = checkNotNull(backStackEntry.arguments?.getString("owner")),
                         )
                     }
                 }
