@@ -9,26 +9,31 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import jp.co.yumemi.android.code_check.common.NetworkResponse
 import jp.co.yumemi.android.code_check.common.State.GithubRepositoryState
+import jp.co.yumemi.android.code_check.model.Item
 import jp.co.yumemi.android.code_check.viewModel.utlil.SearchGithubUtil
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchGithubViewModel @Inject constructor(
-    private val searchGithubUtil: SearchGithubUtil
+class SearchGithubViewModel
+@Inject
+constructor(
+    private val searchGithubUtil: SearchGithubUtil,
 ) : ViewModel() {
-    private val _state = mutableStateOf(GithubRepositoryState())
-    val state: State<GithubRepositoryState> = _state
+    private val _state = mutableStateOf(GithubRepositoryState<List<Item>>())
+    val state: State<GithubRepositoryState<List<Item>>> = _state
     var query by mutableStateOf("")
 
     fun searchGithubRepository() {
         searchGithubUtil.searchGithubRepository(query).onEach { result ->
             when (result) {
                 is NetworkResponse.Success -> {
-                    _state.value = GithubRepositoryState(
-                        data = result.data.items, isLoading = false
-                    )
+                    _state.value =
+                        GithubRepositoryState(
+                            data = result.data.items,
+                            isLoading = false,
+                        )
                 }
 
                 is NetworkResponse.Failure -> {
