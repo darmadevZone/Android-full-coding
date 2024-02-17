@@ -25,6 +25,9 @@ ktlint = "0.40.0"
 navigation = "2.7.7"
 hilt-navigation = "1.1.0"
 
+# coil
+compose-coil = "2.5.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 # androidx-material = { module = "androidx.compose.material:material", version.ref = "material" }
@@ -63,6 +66,8 @@ ktlint = { module = "com.pinterest:ktlint", version.ref = "ktlint" }
 navigation = {module= "androidx.navigation:navigation-compose",version.ref = "navigation"}
 hilt-navigation = {module = "androidx.hilt:hilt-navigation-compose",version.ref = "hilt-navigation"}
 
+# for coil
+compose-coil = {module = "io.coil-kt:coil-compose", version.ref = "compose-coil"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
