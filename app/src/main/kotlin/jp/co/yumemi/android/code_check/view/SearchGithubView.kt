@@ -33,12 +33,14 @@ fun SearchGithubView(
     viewModel: SearchGithubViewModel = hiltViewModel(),
     goToDetailView: () -> Unit
 ) {
-    Scaffold(topBar = {
-        TopAppBar(
-            title = { Text(text = "Android Engineer CodeCheck") },
-            colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.primary)
-        )
-    }) { inner ->
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(text = "Android Engineer CodeCheck") },
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.primary)
+            )
+        }
+    ) { inner ->
         Column(modifier = Modifier.padding(inner)) {
             OutlinedTextField(
                 value = viewModel.query,
