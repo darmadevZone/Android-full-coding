@@ -64,7 +64,6 @@ fun SearchGithubView(
             val ctx = LocalContext.current
             when {
                 state.isLoading -> {
-                    Log.d("Loading", state.isLoading.toString())
                     Box(
                         contentAlignment = Alignment.Center,
                         modifier = Modifier.fillMaxSize(),
@@ -78,9 +77,9 @@ fun SearchGithubView(
                     Log.d("Error Log", state.error)
                 }
 
-                else -> {
+                state.data != null -> {
                     LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                        items(state.data!!) {
+                        items(state.data) {
                             Row(modifier = Modifier.clickable { goToDetailView(it) }) {
                                 AsyncImage(
                                     model = it.owner.avatarUrl,
