@@ -1,9 +1,7 @@
 package jp.co.yumemi.android.code_check.viewModel
 
 import androidx.compose.runtime.State
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,34 +14,31 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchGithubViewModel
+class GithubDetailViewModel
 @Inject
 constructor(
     private val searchGithubUtil: SearchGithubUtil,
 ) : ViewModel() {
-    private val _state = mutableStateOf(GithubRepositoryState<List<Item>>())
-    val state: State<GithubRepositoryState<List<Item>>> = _state
-    var query by mutableStateOf("")
+    private val _state = mutableStateOf(GithubRepositoryState<Item>())
+    val state: State<GithubRepositoryState<Item>> = _state
 
-    fun searchGithubRepository() {
-        searchGithubUtil.searchGithubRepository(query).onEach { result ->
+    fun getGithubDetail(
+        name: String,
+        owner: String,
+    ) {
+        searchGithubUtil.getRepositoryDetail(name = name, owner = owner).onEach { result ->
             when (result) {
-                is NetworkResponse.Success -> {
-                    _state.value =
-                        GithubRepositoryState(
-                            data = result.data.items,
-                            isLoading = false,
-                        )
-                }
-
-                is NetworkResponse.Failure -> {
-                    _state.value = GithubRepositoryState(error = result.error)
-                }
-
                 is NetworkResponse.Loading -> {
                     _state.value = GithubRepositoryState(isLoading = true)
                 }
+                is NetworkResponse.Failure -> {
+                    _state.value = GithubRepositoryState(error = result.error)
+                }
+                is NetworkResponse.Success -> {
+                    _state.value = GithubRepositoryState(data = result.data)
+                }
             }
-        }.launchIn(viewModelScope)
+        }
+            .launchIn(viewModelScope)
     }
 }
