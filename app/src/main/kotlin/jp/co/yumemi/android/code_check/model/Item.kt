@@ -1,10 +1,13 @@
 package jp.co.yumemi.android.code_check.model
 
+
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
-// /val name: String,
-// val ownerIconUrl: OwnerList,
+
+
+///val name: String,
+//val ownerIconUrl: OwnerList,
 @JsonClass(generateAdapter = true)
 data class Item(
     @Json(name = "name")
