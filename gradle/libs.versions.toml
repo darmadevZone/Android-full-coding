@@ -18,6 +18,9 @@ dagger = "2.48"
 retrofit = "2.9.0"
 moshi = "1.15.1"
 
+# for ktlint
+ktlint = "0.40.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 # androidx-material = { module = "androidx.compose.material:material", version.ref = "material" }
@@ -48,6 +51,8 @@ retrofit-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", 
 moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
 moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
 
+# for ktlint
+ktlint = { module = "com.pinterest:ktlint", version.ref = "ktlint" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
