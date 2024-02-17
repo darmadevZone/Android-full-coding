@@ -83,6 +83,9 @@ dependencies {
     // navigation
     implementation(libs.navigation)
     implementation(libs.hilt.navigation)
+
+    // coil
+    implementation(libs.compose.coil)
 }
 kapt {
     correctErrorTypes true
