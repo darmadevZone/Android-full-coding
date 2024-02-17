@@ -1,14 +1,18 @@
 package jp.co.yumemi.android.code_check.view
 
+import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
@@ -27,13 +31,27 @@ fun GithubDetailView(
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        AsyncImage(
-            model = "https://i0.wp.com/theboreddev.com/wp-content/uploads/2021/10/kotlin_front.png?w=800&ssl=1",
-            contentDescription = null,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        )
+        val state = viewModel.state.value
+        val ctx = LocalContext.current
+        when {
+            state.isLoading -> {
+                CircularProgressIndicator()
+            }
+
+            !state.error.isNullOrBlank() -> {
+                Toast.makeText(ctx, "レポジトリを検索できませんでした", Toast.LENGTH_LONG).show()
+                Log.d("Error", state.error)
+            }
+
+            state.data != null -> {
+                AsyncImage(
+                    model = state.data.owner.avatarUrl,
+                    contentDescription = state.data.name,
+                    modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp),
+                )
 
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
