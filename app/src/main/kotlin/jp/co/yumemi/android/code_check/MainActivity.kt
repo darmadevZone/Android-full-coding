@@ -22,14 +22,14 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 NavHost(
                     navController = navController,
-                    startDestination = ViewRoute.SearchGithubView.route
+                    startDestination = ViewRoute.GithubDetailView.route
                 ) {
-                    composable(ViewRoute.SearchGithubView.route) {
+                    composable(route = ViewRoute.SearchGithubView.route) {
                         SearchGithubView(
                             goToDetailView = {}
                         )
                     }
-                    composable(ViewRoute.GithubDetailView.route) {
+                    composable(route = ViewRoute.GithubDetailView.route) {
                         GithubDetailView(
                             goToSearchView = {}
                         )
