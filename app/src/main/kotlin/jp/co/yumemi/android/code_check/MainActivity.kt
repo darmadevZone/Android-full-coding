@@ -26,7 +26,14 @@ class MainActivity : ComponentActivity() {
                 ) {
                     composable(route = ViewRoute.SearchGithubView.route) {
                         SearchGithubView(
-                            goToDetailView = {},
+                            goToDetailView = { it ->
+                                navController.navigate(
+                                    ViewRoute.GithubDetailView.route.replace(
+                                        "{repositoryName}",
+                                        it.name,
+                                    ).replace("{owner}", it.owner.name),
+                                )
+                            },
                         )
                     }
                     composable(route = ViewRoute.GithubDetailView.route) {
