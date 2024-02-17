@@ -29,15 +29,16 @@ import jp.co.yumemi.android.code_check.viewModel.SearchGithubViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SearchGithubView(viewModel: SearchGithubViewModel = hiltViewModel()) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text(text = "Android Engineer CodeCheck") },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.primary)
-            )
-        }
-    ) { inner ->
+fun SearchGithubView(
+    viewModel: SearchGithubViewModel = hiltViewModel(),
+    goToDetailView: () -> Unit
+) {
+    Scaffold(topBar = {
+        TopAppBar(
+            title = { Text(text = "Android Engineer CodeCheck") },
+            colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.primary)
+        )
+    }) { inner ->
         Column(modifier = Modifier.padding(inner)) {
             OutlinedTextField(
                 value = viewModel.query,
@@ -46,8 +47,7 @@ fun SearchGithubView(viewModel: SearchGithubViewModel = hiltViewModel()) {
                 placeholder = {
                     Text(text = "Github Search...")
                 },
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 keyboardActions = KeyboardActions(onDone = { viewModel.searchGithubRepository() }),
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done)
             )
