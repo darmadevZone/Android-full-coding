@@ -21,6 +21,10 @@ moshi = "1.15.1"
 # for ktlint
 ktlint = "0.40.0"
 
+# navigation
+navigation = "2.7.7"
+hilt-navigation = "1.1.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 # androidx-material = { module = "androidx.compose.material:material", version.ref = "material" }
@@ -53,6 +57,12 @@ moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "mosh
 
 # for ktlint
 ktlint = { module = "com.pinterest:ktlint", version.ref = "ktlint" }
+
+
+# for navigation
+navigation = {module= "androidx.navigation:navigation-compose",version.ref = "navigation"}
+hilt-navigation = {module = "androidx.hilt:hilt-navigation-compose",version.ref = "hilt-navigation"}
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

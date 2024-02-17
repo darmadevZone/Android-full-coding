@@ -29,7 +29,10 @@ import jp.co.yumemi.android.code_check.viewModel.SearchGithubViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SearchGithubView(viewModel: SearchGithubViewModel = hiltViewModel()) {
+fun SearchGithubView(
+    viewModel: SearchGithubViewModel = hiltViewModel(),
+    goToDetailView: () -> Unit
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -46,8 +49,7 @@ fun SearchGithubView(viewModel: SearchGithubViewModel = hiltViewModel()) {
                 placeholder = {
                     Text(text = "Github Search...")
                 },
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 keyboardActions = KeyboardActions(onDone = { viewModel.searchGithubRepository() }),
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done)
             )
