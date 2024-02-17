@@ -79,6 +79,10 @@ dependencies {
     // for ktlint
     ktlint(libs.ktlint)
 
+
+    // navigation
+    implementation(libs.navigation)
+    implementation(libs.hilt.navigation)
 }
 kapt {
     correctErrorTypes true
