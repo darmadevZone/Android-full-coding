@@ -11,16 +11,14 @@ class SearchGithubUtil @Inject constructor(
     private val githubRepository: GithubRepository
 ) {
 
-
     // query -> searchGithubRepositoryで検索 -> responseの取得
-    fun searchGithubRepository(query: String): Flow<NetworkResponse<SearchGithubRepositoryModel>> = flow{
+    fun searchGithubRepository(query: String): Flow<NetworkResponse<SearchGithubRepositoryModel>> = flow {
         try {
             emit(NetworkResponse.Loading())
             val result = githubRepository.searchGithubRepository(query)
             emit(NetworkResponse.Success(data = result))
-        }catch (e: Exception){
+        } catch (e: Exception) {
             emit(NetworkResponse.Failure(error = e.toString()))
         }
     }
-
 }
