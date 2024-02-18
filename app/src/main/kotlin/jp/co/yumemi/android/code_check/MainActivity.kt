@@ -41,14 +41,14 @@ class MainActivity : ComponentActivity() {
                     composable(
                         route = ViewRoute.GithubDetailView.route,
                         arguments =
-                            listOf(
-                                navArgument("repo") {
-                                    type = NavType.StringType
-                                },
-                                navArgument("owner") {
-                                    type = NavType.StringType
-                                },
-                            ),
+                        listOf(
+                            navArgument("repo") {
+                                type = NavType.StringType
+                            },
+                            navArgument("owner") {
+                                type = NavType.StringType
+                            },
+                        ),
                     ) { backStackEntry ->
                         GithubDetailView(
                             goToSearchView = { navController.navigate(ViewRoute.SearchGithubView.route) },

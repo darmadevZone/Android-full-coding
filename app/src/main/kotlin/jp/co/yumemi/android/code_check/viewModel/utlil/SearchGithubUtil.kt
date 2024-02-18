@@ -32,7 +32,7 @@ constructor(
         flow {
             try {
                 emit(NetworkResponse.Loading())
-                val result = githubRepository.getGithubDetail(repo = repo, owner = owner)
+                val result = githubRepository.getGithubDetail(owner = owner, repo = repo)
                 emit(NetworkResponse.Success(data = result))
             } catch (e: Exception) {
                 emit(NetworkResponse.Failure(error = e.toString()))
