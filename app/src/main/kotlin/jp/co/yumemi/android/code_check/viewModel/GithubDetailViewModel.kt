@@ -23,10 +23,10 @@ constructor(
     val state: State<GithubRepositoryState<Item>> = _state
 
     fun getGithubDetail(
-        name: String,
+        repo: String,
         owner: String,
     ) {
-        searchGithubUtil.getRepositoryDetail(name = name, owner = owner).onEach { result ->
+        searchGithubUtil.getRepositoryDetail(repo = repo, owner = owner).onEach { result ->
             when (result) {
                 is NetworkResponse.Loading -> {
                     _state.value = GithubRepositoryState(isLoading = true)
@@ -35,6 +35,7 @@ constructor(
                     _state.value = GithubRepositoryState(error = result.error)
                 }
                 is NetworkResponse.Success -> {
+                    Log.d("Response", _state.value.data.toString())
                     _state.value = GithubRepositoryState(data = result.data)
                 }
             }

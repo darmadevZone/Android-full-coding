@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                             goToDetailView = {
                                 navController.navigate(
                                     ViewRoute.GithubDetailView.route.replace(
-                                        "{repositoryName}",
+                                        "{repo}",
                                         it.name,
                                     ).replace("{owner}", it.owner.name),
                                 )
@@ -41,18 +41,18 @@ class MainActivity : ComponentActivity() {
                     composable(
                         route = ViewRoute.GithubDetailView.route,
                         arguments =
-                        listOf(
-                            navArgument("repositoryId") {
-                                type = NavType.StringType
-                            },
-                            navArgument("owner") {
-                                type = NavType.StringType
-                            },
-                        ),
+                            listOf(
+                                navArgument("repo") {
+                                    type = NavType.StringType
+                                },
+                                navArgument("owner") {
+                                    type = NavType.StringType
+                                },
+                            ),
                     ) { backStackEntry ->
                         GithubDetailView(
                             goToSearchView = { navController.navigate(ViewRoute.SearchGithubView.route) },
-                            repositoryName = checkNotNull(backStackEntry.arguments?.getString("repositoryId")),
+                            repositoryName = checkNotNull(backStackEntry.arguments?.getString("repo")),
                             repositoryOwner = checkNotNull(backStackEntry.arguments?.getString("owner")),
                         )
                     }
