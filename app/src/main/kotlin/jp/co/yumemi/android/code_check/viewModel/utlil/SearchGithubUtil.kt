@@ -26,13 +26,13 @@ constructor(
         }
 
     fun getRepositoryDetail(
-        name: String,
+        repo: String,
         owner: String,
     ): Flow<NetworkResponse<Item>> =
         flow {
             try {
                 emit(NetworkResponse.Loading())
-                val result = githubRepository.getGithubDetail(name, owner)
+                val result = githubRepository.getGithubDetail(owner = owner, repo = repo)
                 emit(NetworkResponse.Success(data = result))
             } catch (e: Exception) {
                 emit(NetworkResponse.Failure(error = e.toString()))

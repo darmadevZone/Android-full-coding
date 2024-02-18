@@ -1,5 +1,6 @@
 package jp.co.yumemi.android.code_check.repository
 
+import android.util.Log
 import jp.co.yumemi.android.code_check.model.Item
 import jp.co.yumemi.android.code_check.model.SearchGithubRepositoryModel
 import javax.inject.Inject
@@ -15,8 +16,9 @@ constructor(
 
     suspend fun getGithubDetail(
         owner: String,
-        name: String,
+        repo: String,
     ): Item {
-        TODO()
+        Log.d("GithubRepository", githubService.getGithubDetail(owner, repo).toString())
+        return githubService.getGithubDetail(owner, repo)
     }
 }
