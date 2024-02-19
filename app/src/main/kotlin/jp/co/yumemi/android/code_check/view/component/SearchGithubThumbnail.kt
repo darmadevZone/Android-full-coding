@@ -13,11 +13,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import jp.co.yumemi.android.code_check.model.Item
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SearchGithubThubnail(
     item: Item,
@@ -30,7 +35,9 @@ fun SearchGithubThubnail(
             .heightIn(min = 50.dp, max = 100.dp)
             .clickable {
                 goToDetailView(item)
-            },
+            }
+            .semantics { testTagsAsResourceId = true }
+            .testTag("item"),
     ) {
         Row {
             AsyncImage(

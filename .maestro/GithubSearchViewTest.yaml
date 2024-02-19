@@ -10,3 +10,8 @@ name: Github Search View Test
 - tapOn:
     point: "92%,91%"
 - assertVisible: "kotlin"
+- tapOn:
+      id: "item"
+      index: 0
+- assertVisible: "JetBrains/kotlin"
+- assertVisible: "programming language: kotlin"
