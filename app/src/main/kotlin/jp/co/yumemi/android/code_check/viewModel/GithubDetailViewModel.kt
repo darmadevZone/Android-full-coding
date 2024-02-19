@@ -33,7 +33,7 @@ constructor(
         getGithubDetail(repo = repo, owner = owner)
     }
 
-    fun getGithubDetail(
+    private fun getGithubDetail(
         repo: String,
         owner: String,
     ) {
@@ -42,9 +42,11 @@ constructor(
                 is NetworkResponse.Loading -> {
                     _state.value = GithubRepositoryState(isLoading = true)
                 }
+
                 is NetworkResponse.Failure -> {
                     _state.value = GithubRepositoryState(error = result.error)
                 }
+
                 is NetworkResponse.Success -> {
                     Log.d("Response", _state.value.data.toString())
                     _state.value = GithubRepositoryState(data = result.data)
