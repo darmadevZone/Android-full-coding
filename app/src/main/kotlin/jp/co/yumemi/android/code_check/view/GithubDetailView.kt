@@ -71,24 +71,24 @@ fun GithubDetailView(
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         modifier =
-                            Modifier
-                                .fillMaxWidth()
-                                .padding(inner),
+                        Modifier
+                            .fillMaxWidth()
+                            .padding(inner),
                     ) {
                         AsyncImage(
                             model = state.data.owner.avatarUrl,
                             contentDescription = state.data.name,
                             modifier =
-                                Modifier
-                                    .fillMaxWidth()
-                                    .padding(vertical = 8.dp),
+                            Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 8.dp),
                         )
                         Column(
                             verticalArrangement =
-                                Arrangement.spacedBy(
-                                    20.dp,
-                                    Alignment.CenterVertically,
-                                ),
+                            Arrangement.spacedBy(
+                                20.dp,
+                                Alignment.CenterVertically,
+                            ),
                             horizontalAlignment = Alignment.CenterHorizontally,
                             modifier = Modifier.fillMaxSize(),
                         ) {
