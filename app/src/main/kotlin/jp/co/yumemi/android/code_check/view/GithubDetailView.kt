@@ -22,8 +22,6 @@ import jp.co.yumemi.android.code_check.viewModel.GithubDetailViewModel
 @Composable
 fun GithubDetailView(
     goToSearchView: () -> Unit,
-    repositoryName: String,
-    repositoryOwner: String,
     viewModel: GithubDetailViewModel = hiltViewModel(),
 ) {
     Column(

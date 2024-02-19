@@ -86,6 +86,9 @@ dependencies {
 
     // coil
     implementation(libs.compose.coil)
+
+    // material theme2
+    implementation(libs.androidx.material)
 }
 kapt {
     correctErrorTypes true

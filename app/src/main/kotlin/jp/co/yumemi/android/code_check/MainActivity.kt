@@ -52,8 +52,6 @@ class MainActivity : ComponentActivity() {
                     ) { backStackEntry ->
                         GithubDetailView(
                             goToSearchView = { navController.navigate(ViewRoute.SearchGithubView.route) },
-                            repositoryName = checkNotNull(backStackEntry.arguments?.getString("repo")),
-                            repositoryOwner = checkNotNull(backStackEntry.arguments?.getString("owner")),
                         )
                     }
                 }
